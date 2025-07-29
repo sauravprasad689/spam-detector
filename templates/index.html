@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spam Message Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🛡️ Spam Message Detector</h1>
+      <p>Check if your message is safe or spam instantly!</p>
+    </header>
+
+    <main>
+      <form method="POST">
+        <label for="message">Enter your message below:</label>
+        <textarea name="message" id="message" placeholder="Type your message here...">{{ message or '' }}</textarea>
+        <div class="buttons">
+          <button type="submit" name="submit">🚀 Detect</button>
+          <button type="submit" name="clear">🧹 Clear</button>
+        </div>
+      </form>
+
+      {% if result %}
+      <div class="result">{{ result }}</div>
+      {% endif %}
+    </main>
+
+    <footer>
+      <p>Made with ❤️ by Saurav | Flask + ML</p>
+    </footer>
+  </div>
+</body>
+</html>
